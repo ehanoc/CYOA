@@ -59,9 +59,9 @@ contract StoriesContract {
   /**
   * Returns node's id, title, body, owner's address
   */
-  function getStoryNode(uint id) public view returns(uint, string, string, address) {
+  function getStoryNode(uint id) public view returns(uint, string, string, address, uint[]) {
       StoryNode storage node = storiesNodes[id];
-      return (node.id, node.title, node.body, node.owner);
+      return (node.id, node.title, node.body, node.owner, node.childNodesIds);
   }
 
   /**

@@ -41,6 +41,9 @@ contract("StoriesContract", function(accounts) {
         it("adding a new child node", () => {
             return contract.then(instance => {
                 var parentId = 0; //assuming to test this exists
+
+                instance.addStoryNode(parentId, "child 2", "hahaha", {from: account, gas: gas});
+                instance.addStoryNode(parentId, "child 3", "booo", {from: account, gas: gas});
                 return instance.addStoryNode(parentId, "child node title", "child node body", {from: account, gas: gas});
             }).then(result => {
                 nodeCreatedEvent = getEventArgs(result, "OnNewNodeCreated");
