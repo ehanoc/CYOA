@@ -1,0 +1,33 @@
+{
+  "name": "cyoa",
+  "version": "1.0.0",
+  "description": "Create Your Own Adventure ",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "truffle test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ehanoc/CYOA.git"
+  },
+  "keywords": [
+    "solidity",
+    "truffle",
+    "ethereum",
+    "gamedev",
+    "nodejs"
+  ],
+  "author": "ehanoc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ehanoc/CYOA/issues"
+  },
+  "homepage": "https://github.com/ehanoc/CYOA#readme",
+  "dependencies": {
+    "terminal-kit": "^1.17.11",
+    "web3": "^1.0.0-beta.34"
+  }
+}
