@@ -7,6 +7,7 @@ Blockchain implementation to hold the story branch paths
 - Run gananche (localhost:7456 as default?)
 
 - clone
+- ```$ npm install ```
 - ```$ truffle compile ```
 - ```$ truffle migrate ```
 - ```$ truffle test ```
