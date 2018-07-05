@@ -35,3 +35,14 @@ Blockchain implementation to hold the story branch paths
 - Copy the logged contract address
 
 - ```$ node app.js [COPIED ADDRESS] ```
+
+- Output: (Play the example)
+
+```  ==== The start ==== 
+
+[Once upon a time... I woke up and...] 
+
+[0]: I eat breakfast 
+[1]: Went to the gym 
+Enter your option:   ```
+
