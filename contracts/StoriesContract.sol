@@ -28,6 +28,26 @@ contract StoriesContract {
   uint nr_nodes;
 
   /**
+  *
+  */
+  constructor() public {
+    // lazy way to build fixtures for DEVELOPMENT
+    //When contract is built, apply dummy data to test
+
+    //0
+    createNewStoryNode("The start", "Once upon a time... I woke up and...");
+    //1
+    addStoryNode(0, "I eat breakfast", "Scramble eggs and orange juice");
+    //2
+    addStoryNode(0, "Went to the gym", "Picked up my bag and walked all the way to Drumcondra");
+
+    //3
+    addStoryNode(1, "Bad eggs", "The eggs didnt taste right. I havent been paying attention to the expiration dates");
+
+    addStoryNode(2, "Promoted", "Finally, got my blue belt. Now i have target on my back");
+  }
+
+  /**
   * Creates a new Story Root Node.
   *
   */
