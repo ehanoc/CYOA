@@ -8,6 +8,8 @@ contract("StoriesContract", function(accounts) {
     const gas = 200000;
     const account = accounts[0];
 
+    var nodes_count = 0;
+
     describe("createStory", () => {
         it("it should let us create a story", () => {
             return contract.then(instance => {
@@ -28,6 +30,7 @@ contract("StoriesContract", function(accounts) {
             return contract.then(instance => {
                 return instance.getNumberNodes.call();
             }).then(nrNodes => {
+                nodes_count = nrNodes;
                 //console.log(` nrNodes : ${nrNodes}`);
                 assert.equal(nrNodes.valueOf() > 0, true, "No stories");
             })
@@ -38,9 +41,9 @@ contract("StoriesContract", function(accounts) {
     describe("ChildNodes", () => {
         var nodeCreatedEvent;
 
-        it("adding a new child node", () => {
+        it("adding a new child nodes", () => {
             return contract.then(instance => {
-                var parentId = 0; //assuming to test this exists
+                var parentId = nodes_count; //assuming to test this exists
 
                 instance.addStoryNode(parentId, "child 2", "hahaha", {from: account, gas: gas});
                 instance.addStoryNode(parentId, "child 3", "booo", {from: account, gas: gas});

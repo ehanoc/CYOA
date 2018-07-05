@@ -1,5 +1,5 @@
 const fs = require('fs');
-const term = require( 'terminal-kit' ).terminal;
+const term = require('terminal-kit').terminal;
 const Web3 = require('web3');
 const EventEmitter = require('events');
 
@@ -10,12 +10,15 @@ const NODE_BODY     = 2;
 const NODE_OWNER    = 3;
 const NODE_CHILDS   = 4;
 
+//arguments
+var contractAddress = process.argv.pop();
+
+// default for ganache
 web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
 
 var contractJson = JSON.parse(fs.readFileSync('build/contracts/StoriesContract.json', 'utf8'));
 var abi = contractJson["abi"];
-var contractaddress = "0x30753e4a8aad7f8597332e813735def5dd395028";
-var contract = new web3.eth.Contract(abi, contractaddress);
+var contract = new web3.eth.Contract(abi, contractAddress);
 
 var currentNode = -1;
 var currentOption = 0;
@@ -39,11 +42,7 @@ game.on('option', option => {
         term.inputField((error, input) => {
         	term.green( "\n You chose: '%s'\n" , input) ;
 
-            //if(isNaN(input)) return;
-
             var digit = Number(input);
-            //if (digit > currentNode[NODE_CHILDS].length - 1) return;
-
             var nextNode = Number(currentNode[NODE_CHILDS][digit]);
             getNode(nextNode);
         });
@@ -51,7 +50,8 @@ game.on('option', option => {
 });
 
 game.on('node', node => {
-    term.blue(" res : %s \n", JSON.stringify(node));
+    term.blue("\n\n ==== %s ==== \n\n", node[NODE_TITLE]);
+    term.white("[%s] \n\n", node[NODE_BODY]);
 
     currentNode = node;
     currentOption = 0;
