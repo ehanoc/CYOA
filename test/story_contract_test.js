@@ -1,6 +1,6 @@
 var StoriesContract = artifacts.require("StoriesContract");
 
-contract("StoriesContract", function(accounts) {
+contract("StoriesContract", accounts => {
 
     //replace for your test contract addr
     //const contract = StoriesContract.at("0x2c2b9c9a4a25e24b174f26114e8926a9f2128fe4");
